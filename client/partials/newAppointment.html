@@ -1,0 +1,29 @@
+<div ng-controller="newAppointmentsController">
+	<h1>New Appointment</h1>
+	<form ng-submit="createAppointment(patient._id)">
+		<p>Date: <input type="date" ng-model='newAppointment.date' required></p>
+		<p>{{errors.date.message}}{{date_error}}</p>
+		Time: <select ng-model='newAppointment.time' required>
+			<option value="800">8:00 AM</option>
+			<option value="900">9:00 AM</option>
+			<option value="1000">10:00 AM</option>
+			<option value="1100">11:00 AM</option>
+			<option value="1200">12:00 PM</option>
+			<option value="1300">1:00 PM</option>
+			<option value="1400">2:00 PM</option>
+			<option value="1500">3:00 PM</option>
+			<option value="1600">4:00 PM</option>
+			<option value="1700">5:00 PM</option>
+		</select>
+		<p>{{errors.time.message}}</p>
+		<p>Complaint:</p>
+		<textarea ng-model='newAppointment.complaint' required rows="8" cols="80"></textarea>
+		<p>{{errors.complaint.message}}</p>
+		<p><input type="submit" value="Add Appointment"></p>
+	</form>
+	<a href="#!/dashboard">Cancel</a>
+	<div ng-if="newUser">
+		<h2>My new user!</h2>
+		<p>{{newUser.first_name}} {{newUser.last_name}}</p>
+	</div>
+</div>

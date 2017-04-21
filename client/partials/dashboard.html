@@ -1,0 +1,29 @@
+<div ng-controller='dashboardController'>
+  <a href="" ng-click="logoutPatient()">Logout</a>
+  <h1>Doctor's Appointments</h1>
+  <form>
+    <p>Search: <input type="text" ng-model='filterAppointments'></p>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Patient Name</th>
+        <th>Complaint</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="appointment in appointments | filter: filterAppointments | orderBy: 'date'">
+        <td>{{appointment.date | date: "MMMM d, yyyy"}}</td>
+        <td>{{appointment.time}}</td>
+        <td>{{appointment._patient.name}}</td>
+        <td>
+          {{appointment.complaint}}
+          <button ng-if="appointment._patient.name == patient.name" type="button" ng-click="deleteAppointment(appointment._id)">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="#!/new_appointment">Add New Appointment</a>
+</div>
