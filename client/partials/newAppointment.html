@@ -1,19 +1,19 @@
 <div ng-controller="newAppointmentsController">
 	<h1>New Appointment</h1>
 	<form ng-submit="createAppointment(patient._id)">
-		<p>Date: <input type="date" ng-model='newAppointment.date' required></p>
-		<p>{{errors.date.message}}{{date_error}}</p>
+		<p>Date: <input type="date" name='apptDate' ng-model='newAppointment.date' required></p>
+		<p>{{errors.date.message}}{{date_error}}{{errors.message}}</p>
 		Time: <select ng-model='newAppointment.time' required>
-			<option value="800">8:00 AM</option>
-			<option value="900">9:00 AM</option>
-			<option value="1000">10:00 AM</option>
-			<option value="1100">11:00 AM</option>
-			<option value="1200">12:00 PM</option>
-			<option value="1300">1:00 PM</option>
-			<option value="1400">2:00 PM</option>
-			<option value="1500">3:00 PM</option>
-			<option value="1600">4:00 PM</option>
-			<option value="1700">5:00 PM</option>
+			<option>8:00 AM</option>
+			<option>9:00 AM</option>
+			<option>10:00 AM</option>
+			<option>11:00 AM</option>
+			<option>12:00 PM</option>
+			<option>1:00 PM</option>
+			<option>2:00 PM</option>
+			<option>3:00 PM</option>
+			<option>4:00 PM</option>
+			<option>5:00 PM</option>
 		</select>
 		<p>{{errors.time.message}}</p>
 		<p>Complaint:</p>

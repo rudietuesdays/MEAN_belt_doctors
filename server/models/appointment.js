@@ -1,15 +1,26 @@
 console.log('loading appointment model...');
 var mongoose = require('mongoose');
+var validate = require('mongoose-validator');
 var Schema = mongoose.Schema;
+
+// var today = new Date();
+
+var dateValidator = [
+  validate({
+    validator: 'isAfter',
+    message: 'appointment cannot be in the past'
+  })
+];
 
 var AppointmentSchema = new Schema({
   date: {
     type: Date,
     required: [true, 'enter desired date'],
+    validate: dateValidator
   },
 
   time: {
-    type: Number,
+    type: String,
 		required: [true, 'select a time']
   },
 

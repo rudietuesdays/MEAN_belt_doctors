@@ -28,7 +28,7 @@ app.factory('appointmentFactory', ['$http', function($http){
     $http.delete('/appointments/'+id)
     .then(function(returned_data){
       if(typeof(callback) == 'function'){
-        callback(returned_data.data);
+        callback(returned_data);
       }
     })
   }

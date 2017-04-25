@@ -44,6 +44,7 @@ app.controller('dashboardController', ['patientFactory', 'appointmentFactory', '
     appointmentFactory.delete(id, function(data){
       if (data.data.errors){
         console.log(data.data.errors);
+        $scope.errors = data.data.errors;
       } else {
         console.log(data);
       }

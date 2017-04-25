@@ -17,6 +17,8 @@ app.controller('newAppointmentsController', ['$scope', '$location', '$cookies', 
           $scope.patient = data.data;
           // console.log('data is:', data.data);
         })
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementsByName("apptDate")[0].setAttribute('min', today);
       }
       showPatient(patientCookie)
     }
